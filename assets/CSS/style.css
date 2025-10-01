@@ -5,33 +5,49 @@
 
 }
 
+:root {
+    --bg-color: grey;
+    --card-bg: white;
+    --check-color: green;
+    --border-color: lightgra;
+    --hover-color: #f0f0f0;
+}
+
 body {
-    background-color: rgb(119,136,153);
-    font-weight:150;
+    background-color: var(--bg-color);
+    font-weight: 150;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
     
 
 }
 
 .cardContainer {
     display: flex;
-    justify-content:center;
-    align-items: center;
-    gap: 100px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
     max-width: 1200px;
     flex-wrap: wrap;
-    margin:150px 100px;
-
     
 }
 
 .card1 , .card2 {
     height: 500px;
     width: 300px;
-    background-color: white;
+    background-color: var(--card-bg);
     padding:20px 30px;
-  }
 
-  .profileData1, .profileData2 {
+    
+  }
+  
+  
+
+  .profileData {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -48,21 +64,33 @@ right:-20px;
 
 }
 
-.user-Img1 , .user-Img2 {
+.user-Img1, .user-Img2 {
     height:100px;
     width: 100px;
     object-fit:cover;
-   border-radius: 50%;
-     margin-top: 20px; /*image перемістила нижче за допоомгою margin. Це ок чи потрібно було іншими способами?*/
-  }
+    border-radius: 50%;
+    margin-top: 20px;
+}
 
-  .user-Img1 {
-    object-position: 35% 50%; /*Чи це ок, таким чином до деталей позиціонувати image?*/
-  }
+/* Залишаємо окремо тільки унікальні властивості */
+.user-Img1 { object-position: 35% 50%; }
+.user-Img2 { object-position: 35% 0; }
 
-  .user-Img2 {
-    object-position: 35% 0; /*Чи це ок, таким чином до деталей позиціонувати image?*/
-  }
+
+  .checkMark {
+    color: var(--check-color);
+    font-size: 20px; /* розмір галочки */
+    position: absolute;
+  top:100px;
+  right:75px;
+
+ 
+}
+
+.checkMark i {
+    border-radius: 50%; /* робить фон круглим */
+    background-color: transparent; /* прозорий фон */
+}
 
 .userName {
 margin-top: 15px;
@@ -71,17 +99,18 @@ font-weight: lighter;
 }
 .activityList {
     display: flex;
-    margin-top: 30px;
+    margin: 30px 0;
     list-style: none;
     text-align: center;
-    margin-bottom: 30px;
+   
+  
 
 
 }
 p {
 
     text-align:center;
-    font-size:smaller;
+    font-size:13px;
   
 }
 .socialNetworksInfo {
@@ -94,15 +123,24 @@ p {
 
 }
 
-.socialLinkItemTwitter {
-border-radius: 60%;
-background-color: skyblue;
+.socialLinkItem {
+   font-size: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none; /* прибирає підкреслення посилання */
+    color: inherit; /* успадковує колір тексту */
+    transition: background-color 0.3s ease;
+}
 
-}
-.socialLinkItemFacebook {
-  background-color: blue;
-  border-radius: 60%;
-}
+.socialLinkItem:hover {
+    background-color: skyblue;}
 
 .cardFooter {
 
@@ -116,6 +154,11 @@ background-color: skyblue;
     width: 150px;
     border-radius: 20px;
     border: 1px solid grey;
-    background-color: white;
+     background-color: var(--hover-color);
 
+}
+.profileBtn:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    border-color: #999; 
 }
